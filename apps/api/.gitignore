@@ -1,0 +1,30 @@
+# Compiled output
+dist
+build
+tmp
+out-tsc
+
+# Node
+node_modules
+npm-debug.log
+pnpm-debug.log
+
+# IDEs and editors
+.idea
+.vscode/*
+!.vscode/extensions.json
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS
+.DS_Store
+
+# Tests
+coverage
+*.lcov
+
+# Environment
+.env
