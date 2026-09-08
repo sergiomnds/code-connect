@@ -5,7 +5,9 @@ import { AuthTemplate } from './AuthTemplate'
 describe('AuthTemplate', () => {
   it('renders the banner image and the given content', () => {
     render(
-      <AuthTemplate banner={{ src: '/banner-login.png', alt: 'Code Connect login banner' }}>
+      <AuthTemplate
+        banner={{ src: '/banner-login.png', alt: 'Code Connect login banner', width: 407, height: 636 }}
+      >
         <p>form content</p>
       </AuthTemplate>,
     )

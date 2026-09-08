@@ -12,7 +12,7 @@ export function LoginPage() {
   }
 
   return (
-    <AuthTemplate banner={{ src: '/banner-login.png', alt: 'Code Connect' }}>
+    <AuthTemplate banner={{ src: '/banner-login.png', alt: 'Code Connect', width: 407, height: 636 }}>
       <LoginForm onSubmit={handleSubmit} socialProviders={socialProviders} />
     </AuthTemplate>
   )

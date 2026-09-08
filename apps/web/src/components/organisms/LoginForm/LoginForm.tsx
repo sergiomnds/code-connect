@@ -1,5 +1,6 @@
 import { type FormEvent, useState } from 'react'
 import { Button } from '../../atoms/Button'
+import { Icon } from '../../atoms/Icon'
 import { AuthPrompt } from '../../molecules/AuthPrompt'
 import { Divider } from '../../molecules/Divider'
 import { FormField } from '../../molecules/FormField'
@@ -57,9 +58,9 @@ export function LoginForm({ onSubmit, socialProviders }: LoginFormProps) {
 
   return (
     <form onSubmit={handleSubmit} className="flex w-full flex-col gap-6" noValidate>
-      <div>
-        <h1 className="text-3xl font-bold text-white">Login</h1>
-        <p className="mt-2 text-muted">Boas-vindas! Faça seu login.</p>
+      <div className="flex flex-col gap-6">
+        <h1 className="text-3xl font-semibold leading-normal text-muted">Login</h1>
+        <p className="text-xl leading-normal text-muted">Boas-vindas! Faça seu login.</p>
       </div>
 
       <div className="flex flex-col gap-4">
@@ -88,10 +89,10 @@ export function LoginForm({ onSubmit, socialProviders }: LoginFormProps) {
           onChange: (event) => setRemember(event.target.checked),
         }}
         linkLabel="Esqueci a senha"
-        linkProps={{ to: '/esqueci-senha' }}
+        linkProps={{ to: '/esqueci-senha', underline: true }}
       />
 
-      <Button type="submit" icon={<span aria-hidden="true">→</span>}>
+      <Button type="submit" icon={<Icon name="arrow_forward" />}>
         Login
       </Button>
 
@@ -99,7 +100,12 @@ export function LoginForm({ onSubmit, socialProviders }: LoginFormProps) {
 
       <SocialLoginList providers={socialProviders} />
 
-      <AuthPrompt question="Ainda não tem conta?" actionLabel="Crie seu cadastro! 📋" to="/cadastro" />
+      <AuthPrompt
+        question="Ainda não tem conta?"
+        actionLabel="Crie seu cadastro!"
+        to="/cadastro"
+        icon={<Icon name="assignment" />}
+      />
     </form>
   )
 }

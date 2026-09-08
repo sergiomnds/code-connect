@@ -9,15 +9,17 @@ export function Checkbox({ label, id, className = '', ...props }: CheckboxProps)
     <input
       id={id}
       type="checkbox"
-      className={`h-4 w-4 rounded border border-muted bg-transparent accent-accent outline-none focus-visible:ring-2 focus-visible:ring-accent ${className}`}
+      className={`h-6 w-6 rounded-[4px] border-2 border-field bg-transparent accent-accent outline-none focus-visible:ring-2 focus-visible:ring-accent ${className}`}
       {...props}
     />
   )
 
-  if (!label) return checkbox
+  if (!label) {
+    return checkbox
+  }
 
   return (
-    <label htmlFor={id} className="flex items-center gap-2 text-sm text-muted">
+    <label htmlFor={id} className="flex items-center gap-2 text-sm leading-normal text-field">
       {checkbox}
       {label}
     </label>

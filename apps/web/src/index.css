@@ -1,12 +1,18 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #0b1013;
-  --color-surface: #2e2e2e;
-  --color-field: #8c8c8c;
-  --color-accent: #84f58c;
-  --color-accent-strong: #3fcf56;
-  --color-muted: #d9d9d9;
+  /* Code Connect palette (see Figma design tokens) */
+  --color-background: #00090e; /* Grafite */
+  --color-surface: #171d1f; /* Cinza Escuro */
+  --color-field: #888888; /* Cinza médio */
+  --color-accent: #81fe88; /* Verde destaque */
+  --color-accent-strong: #3fcf56; /* Verde destaque, hover — no design equivalent */
+  --color-muted: #e1e1e1; /* Offwhite */
+  --color-petrol: #132e35; /* Verde petróleo */
+  --color-border: #000000;
+  --color-danger: #f87171;
+
+  --font-sans: "Prompt", ui-sans-serif, system-ui, sans-serif;
 }
 
 html,
@@ -17,4 +23,5 @@ body,
 
 body {
   background: var(--color-background);
+  font-family: var(--font-sans);
 }

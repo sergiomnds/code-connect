@@ -50,6 +50,27 @@ There is no root-level lint/test/build aggregator — invoke the `web:*`/`api:*`
 - Style with **Tailwind CSS**.
 - Every component must have a test covering its essential usage (main render/interaction path), not just a smoke test.
 
+### Colors
+
+- Never use a literal hex value in a class (`bg-[#171d1f]`) and never fall back to Tailwind's default color swatches (`text-red-400`, `border-black`) for design-driven colors.
+- The project palette lives in the `@theme` block of `apps/web/src/index.css` as semantic `--color-*` tokens (`background`, `surface`, `field`, `accent`, `accent-strong`, `muted`, `petrol`, `border`, `danger`), each commented with its Figma name. Use the resulting utilities (`bg-surface`, `text-muted`, `border-border`, `text-danger`, …).
+- Adding a new color from Figma? Add a token to that `@theme` block first, then consume it — don't inline the hex in a component.
+
+### Font sizes
+
+- Never use an arbitrary size (`text-[22px]`). Map the design value to the **nearest** standard Tailwind size token instead:
+
+  | Figma px | Tailwind token |
+  |---|---|
+  | 12.5px | `text-xs` |
+  | 15px | `text-sm` |
+  | 18px | `text-lg` |
+  | 22px | `text-xl` |
+  | 24px | `text-2xl` |
+  | 31px | `text-3xl` |
+
+  Extend this table as new sizes show up in designs; when a value sits exactly between two tokens, pick the one that keeps the existing type hierarchy's steps distinct.
+
 ## Backend conventions (apps/api)
 
 - Follow REST principles strictly: proper resource-based URLs, correct HTTP methods (GET/POST/PUT/PATCH/DELETE) and status codes, statelessness, and consistent representation of resources across endpoints.

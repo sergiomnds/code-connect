@@ -1,16 +1,19 @@
 import { AuthTemplate } from '../../components/templates/AuthTemplate'
-import { AuthPrompt } from '../../components/molecules/AuthPrompt'
+import { SignUpForm, type SignUpFormValues } from '../../components/organisms/SignUpForm'
+
+const socialProviders = [
+  { name: 'Github', iconSrc: '/github.png' },
+  { name: 'Gmail', iconSrc: '/gmail.png' },
+]
 
 export function SignUpPage() {
+  function handleSubmit(values: SignUpFormValues) {
+    console.log('sign up submit', values)
+  }
+
   return (
-    <AuthTemplate banner={{ src: '/banner-login.png', alt: 'Code Connect' }}>
-      <div className="flex w-full flex-col gap-6">
-        <div>
-          <h1 className="text-3xl font-bold text-white">Cadastro</h1>
-          <p className="mt-2 text-muted">Em breve você poderá criar sua conta por aqui.</p>
-        </div>
-        <AuthPrompt question="Já tem uma conta?" actionLabel="Faça login!" to="/login" />
-      </div>
+    <AuthTemplate banner={{ src: '/banner-cadastro.png', alt: 'Code Connect', width: 407, height: 683 }}>
+      <SignUpForm onSubmit={handleSubmit} socialProviders={socialProviders} />
     </AuthTemplate>
   )
 }
